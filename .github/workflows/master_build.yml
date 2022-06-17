@@ -15,3 +15,10 @@ jobs:
             yarn
             yarn init_test
           cd ..
+
+      - uses: actions/upload-artifact@v2
+        # if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: screenshots
+          path: |
+            screenshots
