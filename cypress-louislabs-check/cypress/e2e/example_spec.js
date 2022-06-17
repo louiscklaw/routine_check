@@ -40,7 +40,7 @@ describe('viewports', () => {
         cy.screenshot();
 
         // cool down
-        cy.wait(1000);
+        cy.wait(3000);
       }
     }
   });
