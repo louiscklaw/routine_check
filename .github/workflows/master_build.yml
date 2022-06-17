@@ -22,6 +22,6 @@ jobs:
       - uses: actions/upload-artifact@v2
         # if: startsWith(github.ref, 'refs/tags/')
         with:
-          name: screenshots
+          name: cypress-helloworld-tryout_screenshots
           path: |
-            screenshots
+            cypress-helloworld-tryout\cypress\screenshots
