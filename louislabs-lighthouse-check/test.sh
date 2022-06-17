@@ -3,6 +3,6 @@
 set -ex
 
 docker run --rm --name lighthouse -it \
-  -v ./volumes/report:/home/chrome/reports \
+  -v volumes/report:/home/chrome/reports \
   --cap-add=SYS_ADMIN femtopixel/google-lighthouse \
   http://www.example.com
