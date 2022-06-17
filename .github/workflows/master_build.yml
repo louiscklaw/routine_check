@@ -32,4 +32,4 @@ jobs:
           slack_channel: general
           slack_username: Github
           status: failure
-        if: failure()
+        if: always()
