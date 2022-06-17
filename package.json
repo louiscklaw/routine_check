@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gitUpdate": "git add . && git commit -m\"update routine-check,\" && git pull && git push"
+    "gitSync": "git fetch --all && git pull",
+    "gitUpdate": "git add . && git commit -m\"update routine-check,\" && yarn gitSync && git push"
   },
   "repository": {
     "type": "git",
