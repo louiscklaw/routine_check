@@ -1,5 +1,5 @@
 {
-  "name": "cypress-helloworld-tryout",
+  "name": "cypress-louislabs-check",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "init_dev": "yarn --dev && yarn cypress open",
     "gitSync": "git fetch --all && git pull",
     "init_test": "yarn --dev && yarn cypress run",
-    "gitUpdate": "git add . && git commit -m\"update cypress-helloworld-tryout,\" && yarn gitSync && git push",
+    "gitUpdate": "git add . && git commit -m\"update cypress-louislabs-check,\" && yarn gitSync && git push",
     "trim": "rm -rf node_modules"
   },
   "keywords": [],
