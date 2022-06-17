@@ -25,3 +25,11 @@ jobs:
           name: cypress-helloworld-tryout_screenshots
           path: |
             cypress-helloworld-tryout/cypress/screenshots
+
+      - uses: craftech-io/slack-action@v1
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          slack_channel: general
+          slack_username: Github
+          status: failure
+        if: failure()
