@@ -1,0 +1,17 @@
+name: master_build
+on:
+  push:
+
+jobs:
+  cypress-helloworld-tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: run test
+        run: |
+          cd cypress-helloworld-tryout
+            yarn
+            yarn init_test
+          cd ..
