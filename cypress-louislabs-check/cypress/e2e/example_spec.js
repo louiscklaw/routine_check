@@ -11,7 +11,7 @@ const view_ports = [
   'iphone-x',
   'iphone-xr',
   'iphone-se2',
-  'macbook-11',
+  // 'macbook-11',
   'macbook-13',
   'macbook-15',
   'macbook-16',
