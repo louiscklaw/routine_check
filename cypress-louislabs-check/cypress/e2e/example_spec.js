@@ -38,6 +38,9 @@ describe('viewports', () => {
         cy.get('#my-name').should('have.text', 'Louis Law');
 
         cy.screenshot();
+
+        // cool down
+        cy.wait(5000);
       }
     }
   });
