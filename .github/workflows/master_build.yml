@@ -24,4 +24,4 @@ jobs:
         with:
           name: cypress-helloworld-tryout_screenshots
           path: |
-            cypress-helloworld-tryout\cypress\screenshots
+            cypress-helloworld-tryout/cypress/screenshots
