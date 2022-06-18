@@ -1,0 +1,44 @@
+name: master_build
+on:
+  push:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+
+jobs:
+  cypress-taobao-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: run test
+        run: |
+          cd cypress-taobao-check
+            yarn
+            yarn init_test
+          cd ..
+
+      - uses: actions/upload-artifact@v2
+        # if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: cypress-taobao-check_screenshots
+          path: |
+            cypress-taobao-check/cypress/screenshots
+        if: failure()
+
+      - uses: actions/upload-artifact@v2
+        # if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: cypress-taobao-check_videos
+          path: |
+            cypress-taobao-check/cypress/videos
+        if: failure()
+
+      - uses: craftech-io/slack-action@v1
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          slack_channel: routine-check
+          slack_username: Github
+          status: failure
+        if: failure()
