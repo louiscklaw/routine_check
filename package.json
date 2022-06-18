@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gitSync": "git fetch --all && git pull",
-    "gitUpdate": "git add . && git commit -m\"update routine-check,\" && yarn gitSync && git push"
+    "gitUpdate": "git add . && git commit -m\"update routine-check,\" && yarn gitSync && git push",
+    "trim": "node scripts/trim.js"
   },
   "repository": {
     "type": "git",
@@ -23,3 +24,4 @@
   },
   "homepage": "https://github.com/louiscklaw/routine_check#readme"
 }
+
