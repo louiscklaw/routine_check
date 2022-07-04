@@ -1,0 +1,27 @@
+name: master_build
+on:
+  push:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  cypress-louislabs-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: run test
+        run: |
+          cd ping-louislabs-healthcheck
+            node ./index.js
+          cd ..
+
+      - uses: craftech-io/slack-action@v1
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          slack_channel: routine-check
+          slack_username: Github
+          status: failure
+        if: failure()
