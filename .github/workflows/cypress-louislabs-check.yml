@@ -38,7 +38,8 @@ jobs:
       - uses: craftech-io/slack-action@v1
         with:
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          slack_channel: routine-check
+          slack_channel: site_status
           slack_username: Github
           status: failure
         if: failure()
+
