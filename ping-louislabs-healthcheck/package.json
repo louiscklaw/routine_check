@@ -1,0 +1,14 @@
+{
+  "name": "ping-louislabs-healthcheck",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gitSync": "git fetch --all && git pull",
+    "gitUpdate": "git add . && git commit -m\"update ping-louislabs-healthcheck,\" && yarn gitSync && git push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
