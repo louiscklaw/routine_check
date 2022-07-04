@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  cypress-louislabs-check:
+  ping-louislabs-healthcheck:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
