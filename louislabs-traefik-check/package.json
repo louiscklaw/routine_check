@@ -1,0 +1,19 @@
+{
+  "name": "louislabs-traefik-check",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn mocha",
+    "nodemon_test": "yarn nodemon --delay 1 --exec \"yarn test\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "node-fetch": "^2.6.7",
+    "nodemon": "^2.0.19"
+  }
+}
