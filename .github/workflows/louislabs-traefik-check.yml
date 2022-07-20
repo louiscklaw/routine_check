@@ -1,0 +1,28 @@
+name: master_build
+on:
+  push:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+
+jobs:
+  louislabs-traefik-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: run test
+        run: |
+          cd louislabs-traefik-check
+            yarn
+            yarn test
+          cd ..
+
+      - uses: craftech-io/slack-action@v1
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          slack_channel: routine-check
+          slack_username: Github
+          status: failure
+        if: failure()
