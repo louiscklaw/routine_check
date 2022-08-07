@@ -1,4 +1,4 @@
-name: master_build
+name: status-iamon99-com-check
 on:
   push:
   schedule:
