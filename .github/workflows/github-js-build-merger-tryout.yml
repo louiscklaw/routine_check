@@ -12,12 +12,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: run test
-        run: |
-          cd status-iamon99-com-check
-            yarn
-          cd ..
-
       - name: run merger
         run: |
           cd github-js-build-merger-tryout
