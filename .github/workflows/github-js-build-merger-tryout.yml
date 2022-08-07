@@ -1,4 +1,4 @@
-name: status-iamon99-com-check
+name: github-js-build-merger-tryout
 on:
   push:
   schedule:
