@@ -21,7 +21,7 @@ const checkBranchName = async () => {
 
 const checkIfTestBranch = (name_to_test) => name_to_test.match(/test.*/)?.length > 0;
 
-const pushBranch = () => {
+const pushBranch = async () => {
   let temp = await child_process.execSync(`git push`, { encoding: 'utf8', cwd: WORKING_DIR });
   return temp
 }
