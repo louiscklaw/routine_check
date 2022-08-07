@@ -1,9 +1,6 @@
 name: github-js-build-merger-tryout
 on:
   push:
-  schedule:
-    - cron: '0 */2 * * *'
-  workflow_dispatch:
 
 jobs:
   github-js-build-merger-tryout:
