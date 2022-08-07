@@ -1,0 +1,27 @@
+name: status-iamon99-com-check
+on:
+  push:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+
+jobs:
+  status-iamon99-com-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: run test
+        run: |
+          cd status-iamon99-com-check
+            yarn
+          cd ..
+
+      - name: run test
+        run: |
+          cd github-js-build-merger-tryout
+            npm i
+            node ./merge_to_master.js
+          cd ..
+        if: success()
