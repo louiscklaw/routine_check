@@ -42,6 +42,8 @@ if (checkIfTestBranch(current_branch)) {
   await pushBranch();
 
   await checkoutBranch(current_branch);
+}esle{
+  console.log('current branch is not test branch, doing nothing');
 }
 
 console.log('merge branch done');
