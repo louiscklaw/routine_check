@@ -31,6 +31,11 @@ const switchBranch = async (branch) => {
   return temp;
 };
 
+const fetchAllReferences = async () => {
+  let temp = await child_process.execSync(`git fetch --all`, { encoding: 'utf8', cwd: WORKING_DIR });
+  return temp;
+};
+
 // console.log({ result });
 
 // console.log(current_branch);
@@ -43,6 +48,7 @@ if (checkIfTestBranch(current_branch)) {
   console.log('current branch is test branch, starting merge');
   // perform merge
   // await checkoutBranch('master');
+  await fetchAllReferences();
   await switchBranch('master');
   await mergeBranch(current_branch);
   await pushBranch();
