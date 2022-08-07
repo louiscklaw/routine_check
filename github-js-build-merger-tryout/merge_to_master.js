@@ -42,7 +42,7 @@ let current_branch = await checkBranchName();
 if (checkIfTestBranch(current_branch)) {
   console.log('current branch is test branch, starting merge');
   // perform merge
-  await checkoutBranch('master');
+  await switchBranch('master');
   await mergeBranch(current_branch);
   await pushBranch();
 
