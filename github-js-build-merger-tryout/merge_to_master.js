@@ -37,6 +37,7 @@ const fetchAllReferences = async () => {
 };
 
 const pullAllReferences = async () => {
+  console.log('pull all references');
   let temp = await child_process.execSync(`git pull --all`, { encoding: 'utf8', cwd: WORKING_DIR });
   return temp;
 };
