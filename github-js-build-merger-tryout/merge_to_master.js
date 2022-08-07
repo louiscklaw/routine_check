@@ -45,7 +45,7 @@ console.log('merge branch start');
 let current_branch = await checkBranchName();
 
 if (checkIfTestBranch(current_branch)) {
-  console.log('current branch is test branch, starting merge');
+  console.log(`current branch is test branch, starting merge, ${current_branch}`);
   // perform merge
   // await checkoutBranch('master');
   await fetchAllReferences();
