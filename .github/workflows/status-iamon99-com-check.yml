@@ -1,4 +1,4 @@
-name: master_build
+name: status-iamon99-com-check
 on:
   push:
   schedule:
@@ -6,15 +6,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  cypress-louislabs-check:
+  status-iamon99-com-check:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2
-
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: run test
         run: |
-          cd cypress-louislabs-check
+          cd status-iamon99-com-check
             yarn
             yarn init_test
           cd ..
@@ -22,17 +23,17 @@ jobs:
       - uses: actions/upload-artifact@v2
         # if: startsWith(github.ref, 'refs/tags/')
         with:
-          name: cypress-louislabs-check_screenshots
+          name: status-iamon99-com-check_screenshots
           path: |
-            cypress-louislabs-check/cypress/screenshots
+            status-iamon99-com-check/cypress/screenshots
         if: failure()
 
       - uses: actions/upload-artifact@v2
         # if: startsWith(github.ref, 'refs/tags/')
         with:
-          name: cypress-louislabs-check_videos
+          name: status-iamon99-com-check_videos
           path: |
-            cypress-louislabs-check/cypress/videos
+            status-iamon99-com-check/cypress/videos
         if: failure()
 
       - uses: craftech-io/slack-action@v1
@@ -43,3 +44,10 @@ jobs:
           status: failure
         if: failure()
 
+      - name: run test
+        run: |
+          cd github-js-build-merger-tryout
+            npm i
+            node ./merge_to_master.js
+          cd ..
+        if: success()

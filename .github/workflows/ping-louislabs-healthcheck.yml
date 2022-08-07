@@ -1,12 +1,12 @@
-name: louislabs-traefik-check
+name: ping-louislabs-healthcheck
 on:
   push:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 jobs:
-  louislabs-traefik-check:
+  ping-louislabs-healthcheck:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -16,15 +16,14 @@ jobs:
 
       - name: run test
         run: |
-          cd louislabs-traefik-check
-            yarn
-            yarn test
+          cd ping-louislabs-healthcheck
+            node ./index.js
           cd ..
 
       - uses: craftech-io/slack-action@v1
         with:
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          slack_channel: routine-check
+          slack_channel: site_status
           slack_username: Github
           status: failure
         if: failure()
