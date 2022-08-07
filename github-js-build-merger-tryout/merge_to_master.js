@@ -26,6 +26,11 @@ const pushBranch = async () => {
   return temp;
 };
 
+const switchBranch = async (branch) => {
+  let temp = await child_process.execSync(`git switch ${branch}`, { encoding: 'utf8', cwd: WORKING_DIR });
+  return temp;
+};
+
 // console.log({ result });
 
 // console.log(current_branch);
@@ -37,7 +42,8 @@ let current_branch = await checkBranchName();
 if (checkIfTestBranch(current_branch)) {
   console.log('current branch is test branch, starting merge');
   // perform merge
-  await checkoutBranch('master');
+  // await checkoutBranch('master');
+  await switchBranch('master');
   await mergeBranch(current_branch);
   await pushBranch();
 
