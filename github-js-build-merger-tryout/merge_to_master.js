@@ -1,6 +1,6 @@
 import child_process from 'node:child_process';
 
-console.log(process.env)
+console.log(process.env);
 const WORKING_DIR = process.env.GITHUB_WORKSPACE;
 // const WORKING_DIR = 'c:\\temp\\3';
 
@@ -23,8 +23,8 @@ const checkIfTestBranch = (name_to_test) => name_to_test.match(/test.*/)?.length
 
 const pushBranch = async () => {
   let temp = await child_process.execSync(`git push`, { encoding: 'utf8', cwd: WORKING_DIR });
-  return temp
-}
+  return temp;
+};
 
 // console.log({ result });
 
@@ -42,7 +42,7 @@ if (checkIfTestBranch(current_branch)) {
   await pushBranch();
 
   await checkoutBranch(current_branch);
-}esle{
+} else {
   console.log('current branch is not test branch, doing nothing');
 }
 
