@@ -1,6 +1,8 @@
 name: github-js-build-merger-tryout
 on:
   push:
+    branches:
+      - 'test/github-js-build-merger-tryout'
 
 jobs:
   github-js-build-merger-tryout:
