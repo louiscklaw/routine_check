@@ -1,4 +1,4 @@
-name: master_build
+name: cypress-louislabs-check
 on:
   push:
   schedule:
@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: run test
         run: |
@@ -43,3 +45,10 @@ jobs:
           status: failure
         if: failure()
 
+      - name: run test
+        run: |
+          cd github-js-build-merger-tryout
+            npm i
+            node ./merge_to_master.js
+          cd ..
+        if: success()
