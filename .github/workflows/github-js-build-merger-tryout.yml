@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  status-iamon99-com-check:
+  github-js-build-merger-tryout:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
