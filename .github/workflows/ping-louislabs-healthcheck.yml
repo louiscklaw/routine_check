@@ -34,4 +34,4 @@ jobs:
             npm i
             node ./merge_to_master.js
           cd ..
-        if: success()
+        if: success() && github.ref == 'refs/heads/test/ping-louislabs-healthcheck'
