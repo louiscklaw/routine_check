@@ -6,7 +6,7 @@ const expect = require('chai').expect,
 
 describe('node-fetch helloworld', function () {
   describe('#helloworld', function () {
-    it('get something from example.com', function (done) {
+    it('get something from changedetect.iamon99.com', function (done) {
       this.timeout(5 * 1000);
       (async () => {
         const response = await fetch('https://changedetect.iamon99.com/');

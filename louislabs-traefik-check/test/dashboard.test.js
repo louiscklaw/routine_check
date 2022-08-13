@@ -6,7 +6,7 @@ const expect = require('chai').expect,
 
 describe('node-fetch helloworld', function () {
   describe('#helloworld', function () {
-    it('get something from example.com', function (done) {
+    it('get something from dashboard-76c7d.web.app', function (done) {
       this.timeout(5 * 1000);
       (async () => {
         const response = await fetch('https://dashboard-76c7d.web.app/');
@@ -17,4 +17,3 @@ describe('node-fetch helloworld', function () {
     });
   });
 });
-
