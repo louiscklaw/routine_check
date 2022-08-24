@@ -6,10 +6,11 @@
   "scripts": {
     "test": "cypress run",
     "dev": "cypress open",
+    "test_chrome": "cypress run --browser chrome --reporter json",
+    "test_electron": "cypress run --browser electron --reporter json",
     "init_dev": "yarn --dev && yarn dev",
     "init_test": "yarn --dev && yarn test",
-    "gitUpdate": "git add . && git commit -m\"update cypress-helloworld-tryout,\" && git pull && git push",
-    "trim": "rm -rf node_modules"
+    "gitUpdate": "git add . && git commit -m\"update cypress-helloworld-tryout,\" && git pull && git push"
   },
   "keywords": [],
   "author": "",
