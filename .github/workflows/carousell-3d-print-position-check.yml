@@ -9,32 +9,17 @@ jobs:
   carousell-3d-print-position-check:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Cypress tests
-        uses: cypress-io/github-action@v4
-        # the parameters below are only necessary
-        # because we are running these examples in a monorepo
+      - name: checkout
+        uses: actions/checkout@v3
         with:
-          working-directory: carousell-3d-print-position-check
-          # just for full picture after installing Cypress
-          # print information about detected browsers, etc
-          # see https://on.cypress.io/command-line#cypress-info
-          build: npm run build
-          start: npm start
+          fetch-depth: 0
 
-      # carousell-3d-print-position-check-on-windows:
-      #   runs-on: windows-latest
-      #   steps:
-      #     - name: Checkout
-      #       uses: actions/checkout@v2
-
-      #     - name: Cypress tests
-      #       uses: cypress-io/github-action@v2
-      #       with:
-      #         working-directory: carousell-3d-print-position-check
-      #         build: npx cypress run
+      - name: run test
+        run: |
+          cd carousell-3d-print-position-check
+            yarn
+            yarn init_test
+          cd ..
 
       - uses: actions/upload-artifact@v2
         # if: startsWith(github.ref, 'refs/tags/')
@@ -51,3 +36,19 @@ jobs:
           path: |
             carousell-3d-print-position-check/cypress/videos
         if: failure()
+
+      - uses: craftech-io/slack-action@v1
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          slack_channel: routine-check
+          slack_username: Github
+          status: failure
+        if: failure()
+
+      - name: run test
+        run: |
+          cd github-js-build-merger-tryout
+            npm i
+            node ./merge_to_master.js
+          cd ..
+        if: success() && github.ref == 'refs/heads/test/carousell-3d-print-position-check'
