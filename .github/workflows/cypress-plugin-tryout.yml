@@ -18,7 +18,8 @@ jobs:
         run: |
           uname -a
           id
-          sudo apt-get install -qyy fonts-droid ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming
+          sudo apt-get install -qyy language-pack-zh*
+          sudo apt-get install -qyy chinese*
 
       - name: run test
         run: |
