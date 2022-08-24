@@ -35,7 +35,7 @@ jobs:
           name: carousell-3d-print-position-check_videos
           path: |
             carousell-3d-print-position-check/cypress/videos
-        if: failure()
+        # if: failure()
 
       - uses: craftech-io/slack-action@v1
         with:
@@ -43,7 +43,7 @@ jobs:
           slack_channel: routine-check
           slack_username: Github
           status: failure
-        if: failure()
+        # if: failure()
 
       - name: run test
         run: |
