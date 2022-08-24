@@ -7,13 +7,13 @@ on:
 
 jobs:
   carousell-3d-print-position-check:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Cypress tests
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
         # the parameters below are only necessary
         # because we are running these examples in a monorepo
         with:
@@ -21,7 +21,8 @@ jobs:
           # just for full picture after installing Cypress
           # print information about detected browsers, etc
           # see https://on.cypress.io/command-line#cypress-info
-          build: npm i -d && npx cypress run
+          build: npm run build
+          start: npm start
 
   # carousell-3d-print-position-check-on-windows:
   #   runs-on: windows-latest
