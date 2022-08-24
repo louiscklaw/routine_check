@@ -43,7 +43,7 @@ jobs:
           path: |
             cypress-helloworld-tryout/cypress/screenshots
             cypress-helloworld-tryout/cypress/videos
-        # if: failure()
+        if: failure()
 
       - uses: craftech-io/slack-action@v1
         with:
