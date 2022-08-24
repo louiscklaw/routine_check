@@ -3,10 +3,10 @@ let TEST_STUB = 'https://www.carousell.com.hk';
 // let TEST_STUB = "http://localhost:3000";
 
 describe('3D 代客打印 - my post should appears in the first 8 cards', () => {
-  it(`Visits https://www.carousell.com.hk`, () => {
+  it(`Visits http://www.example.com`, () => {
     cy.viewport('macbook-16');
 
-    cy.visit('https://www.carousell.com.hk');
+    cy.visit('http://www.example.com');
 
     cy.xpath('(.//input[@placeholder="Search for an item"])[1]').type('3D 代客打印');
 
