@@ -34,7 +34,7 @@ jobs:
           name: carousell-3d-print-position-check_screenshots
           path: |
             carousell-3d-print-position-check/cypress/screenshots
-        if: failure()
+        # if: failure()
 
       - uses: actions/upload-artifact@v2
         # if: startsWith(github.ref, 'refs/tags/')
@@ -42,7 +42,7 @@ jobs:
           name: carousell-3d-print-position-check_videos
           path: |
             carousell-3d-print-position-check/cypress/videos
-        if: failure()
+        # if: failure()
 
       - uses: craftech-io/slack-action@v1
         with:
