@@ -25,7 +25,14 @@ jobs:
         run: |
           cd cypress-helloworld-tryout
             npm i
-            npm run test -b chrome
+            npm run test_chrome
+          cd ..
+
+      - name: run test using test_electron
+        run: |
+          cd cypress-helloworld-tryout
+            npm i
+            npm run test_electron
           cd ..
 
       - name: upload artifact if failure
