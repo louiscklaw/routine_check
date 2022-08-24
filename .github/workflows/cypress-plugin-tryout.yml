@@ -1,12 +1,12 @@
-name: ping-louislabs-healthcheck
+name: cypress-plugin-tryout
 on:
   push:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 */2 * * *'
   workflow_dispatch:
 
 jobs:
-  ping-louislabs-healthcheck:
+  cypress-plugin-tryout:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -16,9 +16,17 @@ jobs:
 
       - name: run test
         run: |
-          cd ping-louislabs-healthcheck
-            node ./index.js
+          cd cypress-plugin-tryout
+            yarn
+            yarn init_test
           cd ..
+
+      - uses: actions/upload-artifact@v2
+        # if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: cypress-plugin-tryout_screenshots
+          path: |
+            cypress-plugin-tryout/cypress/screenshots
 
       - uses: craftech-io/slack-action@v1
         with:
@@ -28,10 +36,10 @@ jobs:
           status: failure
         if: failure()
 
-      - name: merge to master
+      - name: run merger
         run: |
           cd github-js-build-merger-tryout
             npm i
             node ./merge_to_master.js
           cd ..
-        if: success()
+        if: success() && github.ref == 'refs/heads/test/cypress-plugin-tryout'
