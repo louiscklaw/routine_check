@@ -22,3 +22,15 @@ jobs:
           # print information about detected browsers, etc
           # see https://on.cypress.io/command-line#cypress-info
           build: npx cypress run
+
+  carousell-3d-print-position-check-on-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress tests
+        uses: cypress-io/github-action@v2
+        with:
+          working-directory: carousell-3d-print-position-check
+          build: npx cypress run
