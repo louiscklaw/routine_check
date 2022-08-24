@@ -45,7 +45,7 @@ jobs:
           status: failure
         # if: failure()
 
-      - name: run test
+      - name: run merge
         run: |
           cd github-js-build-merger-tryout
             npm i
