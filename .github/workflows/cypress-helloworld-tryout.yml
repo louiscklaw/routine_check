@@ -17,8 +17,8 @@ jobs:
       - name: run test
         run: |
           cd cypress-helloworld-tryout
-            yarn
-            yarn init_test
+            npm i
+            npm run test
           cd ..
 
       - uses: actions/upload-artifact@v2
