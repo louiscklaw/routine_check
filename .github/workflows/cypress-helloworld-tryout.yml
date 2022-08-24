@@ -21,6 +21,13 @@ jobs:
             npm run test
           cd ..
 
+      - name: run test
+        run: |
+          cd cypress-helloworld-tryout
+            npm i
+            npm run test -b chrome
+          cd ..
+
       - uses: actions/upload-artifact@v2
         # if: startsWith(github.ref, 'refs/tags/')
         with:
