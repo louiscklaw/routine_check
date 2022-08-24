@@ -13,9 +13,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: run merger
+        if: success()
         run: |
           cd github-js-build-merger-tryout
             npm i
             node ./merge_to_master.js
           cd ..
-        if: success()
