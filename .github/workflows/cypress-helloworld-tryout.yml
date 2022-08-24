@@ -21,7 +21,7 @@ jobs:
             npm run test
           cd ..
 
-      - name: run test on chrome
+      - name: run test using chrome
         run: |
           cd cypress-helloworld-tryout
             npm i
