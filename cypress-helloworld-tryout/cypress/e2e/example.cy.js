@@ -21,7 +21,7 @@ const view_ports = [
 
 const orientations = ['portrait', 'landscape'];
 
-describe('viewports', () => {
+describe('example.cy.js', () => {
   it('Does not do much!', () => {
     expect(true).to.equal(true);
   });

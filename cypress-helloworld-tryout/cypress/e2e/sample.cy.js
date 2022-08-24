@@ -1,4 +1,4 @@
-describe('My First Test', () => {
+describe('sample.cy.js', () => {
   it('Does not do much!', () => {
     expect(true).to.equal(true);
   });
