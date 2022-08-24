@@ -6,6 +6,7 @@
   "scripts": {
     "test": "cypress run",
     "build": "npm i -d",
+    "start":"npx cypress run",
     "dev": "cypress open",
     "init_dev": "yarn --dev && yarn cypress open",
     "gitSync": "git fetch --all && git pull",
