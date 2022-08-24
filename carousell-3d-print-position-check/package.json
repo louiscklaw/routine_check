@@ -1,26 +1,20 @@
 {
-  "name": "cypress-louislabs-check",
+  "name": "cypress-helloworld-tryout",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "cypress run",
-    "build": "npm i -d",
-    "start":"npx cypress run",
     "dev": "cypress open",
-    "init_dev": "yarn --dev && yarn cypress open",
-    "gitSync": "git fetch --all && git pull",
-    "init_test": "yarn --dev && yarn cypress run",
-    "gitUpdate": "git add . && git commit -m\"update cypress-louislabs-check,\" && yarn gitSync && git push",
+    "init_dev": "yarn --dev && yarn dev",
+    "init_test": "yarn --dev && yarn test",
+    "gitUpdate": "git add . && git commit -m\"update cypress-helloworld-tryout,\" && git pull && git push",
     "trim": "rm -rf node_modules"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "cypress": "latest"
-  },
   "dependencies": {
-    "sha256": "^0.2.0"
+    "cypress": "latest"
   }
 }
