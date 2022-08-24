@@ -18,6 +18,7 @@ jobs:
         run: |
           uname -a
           id
+          sudo apt-get install -qyy fonts-droid ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming
 
       - name: run test
         run: |
