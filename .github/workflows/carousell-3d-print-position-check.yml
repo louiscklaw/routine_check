@@ -1,4 +1,4 @@
-name: master_build
+name: carousell-3d-print-position-check
 on:
   push:
   schedule:

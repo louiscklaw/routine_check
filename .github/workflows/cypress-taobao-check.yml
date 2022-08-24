@@ -1,4 +1,4 @@
-name: master_build
+name: cypress-taobao-check
 on:
   push:
   schedule:
