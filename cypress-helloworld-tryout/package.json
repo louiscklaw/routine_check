@@ -7,7 +7,7 @@
     "test": "cypress run",
     "dev": "cypress open",
     "test_chrome": "cypress run --browser chrome --reporter mochawesome",
-    "test_chrome_sample": "cypress run --browser chrome --reporter mochawesome -s **/sample.cy.js",
+    "test_chrome_sample": "cypress run --browser chrome -s **/sample.cy.js",
     "test_electron": "cypress run --browser electron --reporter mochawesome",
     "init_dev": "yarn --dev && yarn dev",
     "init_test": "yarn --dev && yarn test",

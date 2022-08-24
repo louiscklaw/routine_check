@@ -11,4 +11,12 @@ module.exports = defineConfig({
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
   },
   reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    //   reportDir: 'cypress/reports',
+    charts: true,
+    //   quiet: true,
+    reportPageTitle: 'Cypress Test Report',
+    //   embeddedScreenshots: true,
+    //   inlineAssets: true,
+  },
 });
