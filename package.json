@@ -11,7 +11,9 @@
     "gitSync": "git fetch --all && git stash && git pull --all && git stash pop || true",
     "gitUpdate": "git add . && git commit -m\"update routine-check,\" && yarn gitSync && git push",
     "trim": "node scripts/trim.js",
-    "format": "npx prettier --write **/*.yml **/*.js **/*.json **/*.html"
+    "format": "npx prettier --write **/*.yml **/*.js **/*.json **/*.html",
+    "docker_rebuild": "docker compose up -d --build",
+    "into_docker": "docker compose exec -it dev bash"
   },
   "repository": {
     "type": "git",
