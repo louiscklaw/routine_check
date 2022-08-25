@@ -6,6 +6,7 @@ on:
       - cypress-helloworld-tryout
       - cypress-louislabs-check
       - louislabs-traefik-check
+      - cypress-taobao-check
     types:
       - completed
 
