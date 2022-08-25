@@ -6,6 +6,7 @@ on:
       - cypress-helloworld-tryout
       - cypress-louislabs-check
       - status-iamon99-com-check
+      - ping-louislabs-healthcheck
     types:
       - completed
 
