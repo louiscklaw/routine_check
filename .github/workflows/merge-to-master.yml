@@ -5,6 +5,7 @@ on:
     workflows:
       - cypress-helloworld-tryout
       - cypress-louislabs-check
+      - status-iamon99-com-check
     types:
       - completed
 
