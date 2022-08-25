@@ -9,6 +9,7 @@ on:
       - ping-louislabs-healthcheck
       - louislabs-traefik-check
       - cypress-taobao-check
+      - cypress-plugin-tryout
     types:
       - completed
 

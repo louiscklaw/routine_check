@@ -43,10 +43,10 @@ jobs:
           status: failure
         if: failure()
 
-      - name: run merger
-        run: |
-          cd github-js-build-merger-tryout
-            npm i
-            node ./merge_to_master.js
-          cd ..
-        if: success() && github.ref == 'refs/heads/test/cypress-plugin-tryout'
+      # - name: run merger
+      #   run: |
+      #     cd github-js-build-merger-tryout
+      #       npm i
+      #       node ./merge_to_master.js
+      #     cd ..
+      #   if: success() && github.ref == 'refs/heads/test/cypress-plugin-tryout'
