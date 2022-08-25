@@ -1,0 +1,52 @@
+name: cypress-plugin-tryout
+on:
+  push:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+
+jobs:
+  cypress-plugin-tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: enable chinese support
+        run: |
+          uname -a
+          id
+          sudo apt-get install -qyy language-pack-zh*
+          sudo apt-get install -qyy chinese*
+
+      - name: run test
+        run: |
+          cd cypress-plugin-tryout
+            npm i
+            npm run test
+          cd ..
+
+      - uses: actions/upload-artifact@v2
+        # if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: cypress-plugin-tryout_screenshots
+          path: |
+            cypress-plugin-tryout/cypress/screenshots
+
+      - uses: craftech-io/slack-action@v1
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          slack_channel: site_status
+          slack_username: Github
+          status: failure
+        if: failure()
+
+      - name: run merger
+        run: |
+          cd github-js-build-merger-tryout
+            npm i
+            node ./merge_to_master.js
+          cd ..
+        if: success() && github.ref == 'refs/heads/test/cypress-plugin-tryout'

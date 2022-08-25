@@ -1,4 +1,4 @@
-name: master_build
+name: cypress-taobao-check
 on:
   push:
   schedule:
@@ -45,10 +45,10 @@ jobs:
           status: failure
         if: failure()
 
-      - name: run test
+      - name: merge to master
         run: |
           cd github-js-build-merger-tryout
             npm i
             node ./merge_to_master.js
           cd ..
-        if: success()
+        if: success() && github.ref == 'refs/heads/test/cypress-taobao-check'

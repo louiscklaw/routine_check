@@ -1,0 +1,54 @@
+name: carousell-3d-print-position-check
+on:
+  push:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+
+jobs:
+  carousell-3d-print-position-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: enable chinese support
+        run: |
+          uname -a
+          id
+          sudo apt-get install -qyy language-pack-zh*
+          sudo apt-get install -qyy chinese*
+
+      - name: run test_chrome
+        run: |
+          cd carousell-3d-print-position-check
+            npm i
+            npm run test_chrome
+          cd ..
+
+      - uses: actions/upload-artifact@v2
+        # if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: carousell-3d-print-position-check_artifact
+          path: |
+            carousell-3d-print-position-check/cypress/screenshots
+            carousell-3d-print-position-check/cypress/videos
+        if: failure() || success()
+
+      - uses: craftech-io/slack-action@v1
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          slack_channel: routine-check
+          slack_username: Github
+          status: failure
+        if: failure()
+
+      - name: merge to master
+        run: |
+          cd github-js-build-merger-tryout
+            npm i
+            node ./merge_to_master.js
+          cd ..
+        if: success() && github.ref == 'refs/heads/test/carousell-3d-print-position-check'

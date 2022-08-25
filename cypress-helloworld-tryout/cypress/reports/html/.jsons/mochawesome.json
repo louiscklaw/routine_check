@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-08-24T14:07:11.265Z",
+    "end": "2022-08-24T14:07:14.170Z",
+    "duration": 2905,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "98f388fc-88bc-47db-af2b-3bc8ece60761",
+      "title": "",
+      "fullFile": "cypress\\e2e\\sample.cy.js",
+      "file": "cypress\\e2e\\sample.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "37a48246-ccdd-4285-a18d-aea74f633043",
+          "title": "sample.cy.js",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Does not do much!",
+              "fullTitle": "sample.cy.js Does not do much!",
+              "timedOut": null,
+              "duration": 26,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect(true).to.equal(true);",
+              "err": {},
+              "uuid": "3d065e8d-61b7-457d-8536-64bd5b0fbf47",
+              "parentUUID": "37a48246-ccdd-4285-a18d-aea74f633043",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Visits the Kitchen Sink",
+              "fullTitle": "sample.cy.js Visits the Kitchen Sink",
+              "timedOut": null,
+              "duration": 1585,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('type').click(); // Should be on a new URL which includes '/commands/actions'\ncy.url().should('include', '/commands/actions'); // Get an input, type into it and verify that the value has been updated\ncy.get('.action-email').type('fake@email.com').should('have.value', 'fake@email.com');",
+              "err": {},
+              "uuid": "1beb6c02-2cc4-4dae-97c3-f965bdf7bb08",
+              "parentUUID": "37a48246-ccdd-4285-a18d-aea74f633043",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3d065e8d-61b7-457d-8536-64bd5b0fbf47",
+            "1beb6c02-2cc4-4dae-97c3-f965bdf7bb08"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1611,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

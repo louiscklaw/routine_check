@@ -6,6 +6,9 @@
   "scripts": {
     "test": "cypress run",
     "dev": "cypress open",
+    "test_chrome": "cypress run --browser chrome --reporter mochawesome",
+    "test_chrome_sample": "cypress run --browser chrome -s **/sample.cy.js",
+    "test_electron": "cypress run --browser electron --reporter mochawesome",
     "init_dev": "yarn --dev && yarn dev",
     "init_test": "yarn --dev && yarn test",
     "gitUpdate": "git add . && git commit -m\"update cypress-helloworld-tryout,\" && git pull && git push",
@@ -14,7 +17,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "cypress": "latest"
+  "dependencies": {
+    "cypress": "latest",
+    "cypress-mochawesome-reporter": "^3.2.2"
   }
 }
