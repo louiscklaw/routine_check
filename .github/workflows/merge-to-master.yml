@@ -11,9 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: merge to master
-        uses: actions/checkout@v2
         uses: ahmadnassri/action-workflow-run-wait@v1
 
+      - name: merge
+        uses: actions/checkout@v2
         run: |
           cd github-js-build-merger-tryout
             npm i
