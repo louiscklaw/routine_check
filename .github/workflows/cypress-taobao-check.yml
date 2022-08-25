@@ -45,10 +45,10 @@ jobs:
           status: failure
         if: failure()
 
-      - name: merge to master
-        run: |
-          cd github-js-build-merger-tryout
-            npm i
-            node ./merge_to_master.js
-          cd ..
-        if: success() && github.ref == 'refs/heads/test/cypress-taobao-check'
+      # - name: merge to master
+      #   run: |
+      #     cd github-js-build-merger-tryout
+      #       npm i
+      #       node ./merge_to_master.js
+      #     cd ..
+      #   if: success() && github.ref == 'refs/heads/test/cypress-taobao-check'

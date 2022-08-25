@@ -8,6 +8,7 @@ on:
       - status-iamon99-com-check
       - ping-louislabs-healthcheck
       - louislabs-traefik-check
+      - cypress-taobao-check
     types:
       - completed
 
