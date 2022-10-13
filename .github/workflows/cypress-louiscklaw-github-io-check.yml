@@ -1,0 +1,46 @@
+name: cypress-louiscklaw-github-io-check
+on:
+  push:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+
+jobs:
+  cypress-louiscklaw-github-io-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: run test
+        run: |
+          cd cypress-louiscklaw-github-io-check
+            yarn
+            yarn init_test
+          cd ..
+
+      - uses: actions/upload-artifact@v2
+        # if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: cypress-louiscklaw-github-io-check_screenshots
+          path: |
+            cypress-louiscklaw-github-io-check/cypress/screenshots
+        if: failure()
+
+      - uses: actions/upload-artifact@v2
+        # if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: cypress-louiscklaw-github-io-check_videos
+          path: |
+            cypress-louiscklaw-github-io-check/cypress/videos
+        if: failure()
+
+      - uses: craftech-io/slack-action@v1
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          slack_channel: site_status
+          slack_username: Github
+          status: failure
+        if: failure()
