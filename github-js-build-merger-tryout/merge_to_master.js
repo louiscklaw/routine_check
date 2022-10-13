@@ -16,6 +16,7 @@ const mergeBranch = async (branchToMerge) => {
 
 const checkBranchName = async () => {
   let temp = await child_process.execSync(`git branch`, { encoding: 'utf8', cwd: WORKING_DIR });
+  console.log({ checkBranchName: temp });
   return temp.match(/\* (.*)/)[1];
 };
 
@@ -57,6 +58,7 @@ if (checkIfTestBranch(current_branch)) {
   console.log(`current branch is test branch, starting merge, ${current_branch}`);
   // perform merge
   // await checkoutBranch('master');
+
   await pullAllReferences();
 
   await fetchAllReferences();
